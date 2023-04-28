@@ -25,7 +25,14 @@ function onImageClick(event) {
   }
 
   const largeImageUrl = event.target.dataset.source;
-  const instance = basicLightbox.create(`<img src="${largeImageUrl}" width="800" height="600">`);
+  const instance = basicLightbox.create(`<img src="${largeImageUrl}" width="800" height="600">`,  {
+    onShow: (instance) => {
+      galleryList.addEventListener('keydown', closeModalOnEsc);
+    },
+    onClose: (instance) => {
+      galleryList.removeEventListener("keydown", closeModalOnEsc);
+    },
+  })
 
   instance.show();
 

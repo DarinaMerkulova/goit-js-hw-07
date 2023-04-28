@@ -18,10 +18,6 @@ galleryList.addEventListener("click", onImageClick);
 
 function onImageClick(event) {
   event.preventDefault();
-
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
   var lightbox = new SimpleLightbox(".gallery a", {
     captionsData: "alt",
     captionPosition: "bottom",
@@ -29,4 +25,12 @@ function onImageClick(event) {
   });
 }
 
-console.log(galleryItems);
+console.log(galleryItems)
+
+
+const newArray = galleryItems.reduce((acc, { original, preview, description }) => `<li class="gallery__item">
+<a class = "gallery__link" href="${original}" >
+  <img class="gallery__image" src="${preview}" alt="${description}" >
+</a>
+</li>`, "");
+console.log(newArray);
