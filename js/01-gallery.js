@@ -33,7 +33,7 @@ function onImageClick(event) {
       galleryList.removeEventListener("keydown", closeModalOnEsc);
     },
   })
-
+ console.log(event)
   instance.show();
 
   window.addEventListener("keydown", closeModalOnEsc);
